@@ -92,7 +92,9 @@ const reactComponentSymbolNames = [
   'Stateless',
   'StyledComponentClass',
   'FunctionComponent',
-  'ComponentWithAs',
+
+  // magic for ComponentWithAs
+  '__type',
 ];
 
 type MaybeIntersectType = ts.Type & { types?: ts.Type[] };
