@@ -35,7 +35,7 @@ import PerformanceTests from './views/PerformanceTests';
 import ButtonNameComputation from './views/ButtonNameComputation';
 import { LazyWithBabel } from './components/ComponentDoc/LazyWithBabel';
 import {
-  DisabledMenuitemPrototype,
+  DisabledFocusablePrototype,
   AlertsPrototype,
   AsyncShorthandPrototype,
   ChatMessagesPrototype,
@@ -108,7 +108,7 @@ const Routes = () => (
                 <Route exact path="/quick-start" component={QuickStart} />
                 <Route exact path="/perf-tests" component={PerformanceTests} />
                 <Route exact path="/prototype-roster" component={RosterPrototype} />
-                <Route exact path="/prototype-disabled-menuitem" component={DisabledMenuitemPrototype} />
+                <Route exact path="/prototype-disabled-focusable" component={DisabledFocusablePrototype} />
                 <Route exact path="/prototype-chat-pane" component={ChatPanePrototype} />
                 <Route exact path="/prototype-chat-messages" component={ChatMessagesPrototype} />
                 <Route exact path="/prototype-compact-chat" component={CompactChatPrototype} />

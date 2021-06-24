@@ -55,8 +55,8 @@ const treeItemsByType = _.map(typeOrder, nextType => {
 
 const prototypesTreeItems: TreeProps['items'] = [
   {
-    id: 'disabled-menuitem',
-    title: { content: 'Disabled Menuitem', as: NavLink, to: '/prototype-disabled-menuitem' },
+    id: 'disabled-focusable',
+    title: { content: 'Disabled Focusable', as: NavLink, to: '/prototype-disabled-focusable' },
     public: true,
   },
   {

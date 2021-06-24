@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-export const DisabledMenuitemPrototype = React.lazy(
-  () => import(/* webpackChunkName: "prototypes" */ './prototypes/DisabledMenuitem'),
+export const DisabledFocusablePrototype = React.lazy(
+  () => import(/* webpackChunkName: "prototypes" */ './prototypes/DisabledFocusable'),
 );
 export const CustomToolbarPrototype = React.lazy(
   () => import(/* webpackChunkName: "prototypes" */ './prototypes/customToolbar'),
