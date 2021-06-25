@@ -187,7 +187,7 @@ const DisabledFocusable: React.FunctionComponent = () => {
 
   return (
     <Provider theme={teamsTheme}>
-      <h1>Disabled Menuitem Prototype</h1>
+      <h1>Disabled Focusable Prototype</h1>
 
       <Toolbar
         aria-label="Toolbar can contain a radio group in a menu"
@@ -212,7 +212,7 @@ const DisabledFocusable: React.FunctionComponent = () => {
               {
                 key: 'number-list',
                 icon: <NumberListIcon {...{ outline: true }} />,
-                disabled: true,
+                disabledFocusable: true,
                 active: numberListActive,
                 onClick: () => {
                   setNumberListActive(!numberListActive);
@@ -243,7 +243,7 @@ const DisabledFocusable: React.FunctionComponent = () => {
             content: 'underline',
             icon: <UnderlineIcon />,
             title: 'Underline',
-            disabled: true,
+            disabledFocusable: true,
           },
           {
             key: 'check-me',
@@ -251,7 +251,7 @@ const DisabledFocusable: React.FunctionComponent = () => {
             icon: <UnderlineIcon />,
             title: 'Check me',
             kind: 'toggle',
-            disabled: true,
+            disabledFocusable: true,
           },
           {
             key: 'font color',
