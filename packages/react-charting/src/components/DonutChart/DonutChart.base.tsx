@@ -38,6 +38,7 @@ export class DonutChartBase extends React.Component<IDonutChartProps, IDonutChar
   /* eslint-disable @typescript-eslint/no-explicit-any */
   private _currentHoverElement: any;
   private _calloutId: string;
+  private _calloutAnchorPoint: IChartDataPoint | null;
 
   public static getDerivedStateFromProps(
     nextProps: Readonly<IDonutChartProps>,
@@ -97,10 +98,14 @@ export class DonutChartBase extends React.Component<IDonutChartProps, IDonutChar
 
     const legendBars = this._createLegends(data!, palette);
     const outerRadius = Math.min(this.state._width!, this.state._height!) / 2;
-    const chartData = data && data.chartData;
+    const chartData = data && data.chartData?.filter((d: IChartDataPoint) => d.data! > 0);
     const valueInsideDonut = this._valueInsideDonut(this.props.valueInsideDonut!, chartData!);
     return (
-      <div className={this._classNames.root} ref={(rootElem: HTMLElement | null) => (this._rootElem = rootElem)}>
+      <div
+        className={this._classNames.root}
+        ref={(rootElem: HTMLElement | null) => (this._rootElem = rootElem)}
+        onMouseLeave={this._handleChartMouseLeave}
+      >
         <FocusZone direction={FocusZoneDirection.horizontal} isCircularNavigation={true}>
           <div>
             <svg
@@ -133,7 +138,7 @@ export class DonutChartBase extends React.Component<IDonutChartProps, IDonutChar
           target={this._currentHoverElement}
           alignTargetEdge={true}
           isBeakVisible={false}
-          directionalHint={DirectionalHint.bottomRightEdge}
+          directionalHint={DirectionalHint.topAutoEdge}
           gapSpace={15}
           hidden={!(!this.props.hideTooltip && this.state.showHover)}
           id={this._calloutId}
@@ -247,27 +252,35 @@ export class DonutChartBase extends React.Component<IDonutChartProps, IDonutChar
   };
 
   private _hoverCallback = (data: IChartDataPoint, e: React.MouseEvent<SVGPathElement>): void => {
-    this._currentHoverElement = e;
-    this.setState({
-      showHover: true,
-      value: data.data!.toString(),
-      selectedLegend: data.legend!,
-      legend: data.legend,
-      color: data.color!,
-      xCalloutValue: data.xAxisCalloutData!,
-      yCalloutValue: data.yAxisCalloutData!,
-      activeLegend: data.legend,
-      dataPointCalloutProps: data,
-      callOutAccessibilityData: data.callOutAccessibilityData!,
-    });
+    if (this._calloutAnchorPoint !== data) {
+      this._calloutAnchorPoint = data;
+      this._currentHoverElement = e;
+      this.setState({
+        showHover: true,
+        value: data.data!.toString(),
+        selectedLegend: data.legend!,
+        legend: data.legend,
+        color: data.color!,
+        xCalloutValue: data.xAxisCalloutData!,
+        yCalloutValue: data.yAxisCalloutData!,
+        activeLegend: data.legend,
+        dataPointCalloutProps: data,
+        callOutAccessibilityData: data.callOutAccessibilityData!,
+      });
+    }
   };
   private _onBlur = (): void => {
     this.setState({ showHover: false, focusedArcId: '', activeLegend: '', selectedLegend: 'none' });
   };
 
   private _hoverLeave(): void {
-    this.setState({ showHover: false, activeLegend: '', selectedLegend: 'none', focusedArcId: '' });
+    this.setState({ activeLegend: '', selectedLegend: 'none', focusedArcId: '' });
   }
+
+  private _handleChartMouseLeave = () => {
+    this._calloutAnchorPoint = null;
+    this.setState({ showHover: false });
+  };
 
   private _valueInsideDonut(valueInsideDonut: string | number | undefined, data: IChartDataPoint[]) {
     if (valueInsideDonut !== undefined && this.state.activeLegend !== '' && !this.state.showHover) {

@@ -1,33 +1,21 @@
 const path = require('path');
 const fs = require('fs');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+const { getAllPackageInfo, isConvergedPackage } = require('@fluentui/scripts/monorepo');
+const semver = require('semver');
 
 /**
- *  @callback StorybookWebpackConfig
- *  @param {import("webpack").Configuration} config
- *  @param {{configType: 'DEVELOPMENT' | 'PRODUCTION'}} options - change the build configuration. 'PRODUCTION' is used when building the static version of storybook.
- *  @returns {import("webpack").Configuration}
- */
-
-/**
- *  @typedef {{
- *    check:boolean;
- *    checkOptions: Record<string,unknown>;
- *    reactDocgen: string | boolean;
- *    reactDocgenTypescriptOptions: Record<string,unknown>
- *  }} StorybookTsConfig
- */
-
-/**
- *  @typedef {{
- *    stories: string[];
- *    addons: string[];
- *    typescript: StorybookTsConfig;
- *    babel: (options:Record<string,unknown>)=>Promise<Record<string,unknown>>;
- *    webpackFinal: StorybookWebpackConfig;
- *    core: {builder:'webpack5'};
- *    previewHead: (head: string) => string
- * }} StorybookConfig
+ * @typedef {import('@storybook/core-common').StorybookConfig} StorybookBaseConfig
+ *
+ * @typedef {{
+ *   babel: (options: Record<string, unknown>) => Promise<Record<string, unknown>>;
+ *   previewHead: (head: string) => string;
+ * }} StorybookExtraConfig
+ *
+ * @typedef {StorybookBaseConfig &
+ *   Required<Pick<StorybookBaseConfig, 'stories' | 'addons' | 'webpackFinal'>> &
+ *   StorybookExtraConfig
+ * } StorybookConfig
  */
 
 /**
@@ -37,13 +25,25 @@ const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const previewHeadTemplate = fs.readFileSync(path.resolve(__dirname, 'preview-head-template.html'), 'utf8');
 
 module.exports = /** @type {Omit<StorybookConfig,'typescript'|'babel'>} */ ({
+  features: {
+    // Enables code splitting
+    storyStoreV7: true,
+  },
   stories: [],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-knobs/preset',
     'storybook-addon-performance',
+
+    // external custom addons
+
+    /**  @see https://github.com/microsoft/fluentui-storybook-addons */
     'storybook-addon-export-to-codesandbox',
+
+    // internal monorepo custom addons
+
+    /**  @see ../packages/react-components/react-storybook-addon */
     '@fluentui/react-storybook-addon',
   ],
   webpackFinal: config => {
@@ -64,7 +64,7 @@ module.exports = /** @type {Omit<StorybookConfig,'typescript'|'babel'>} */ ({
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: [require('storybook-addon-export-to-codesandbox').babelPlugin],
+            plugins: [[require('storybook-addon-export-to-codesandbox').babelPlugin, getCodesandboxBabelOptions()]],
           },
         },
       });
@@ -79,6 +79,7 @@ module.exports = /** @type {Omit<StorybookConfig,'typescript'|'babel'>} */ ({
   },
   core: {
     builder: 'webpack5',
+    lazyCompilation: true,
   },
   /**
    * Programmatically enhance previewHead as inheriting just static file `preview-head.html` doesn't work in monorepo
@@ -117,4 +118,23 @@ function overrideDefaultBabelLoader(rules) {
   }
 
   loader.options.customize = customLoaderPath;
+}
+
+/**
+ * @returns {import('storybook-addon-export-to-codesandbox').BabelPluginOptions}
+ */
+function getCodesandboxBabelOptions() {
+  const allPackageInfo = getAllPackageInfo();
+
+  return Object.values(allPackageInfo).reduce((acc, cur) => {
+    if (isConvergedPackage(cur.packageJson)) {
+      const prereleaseTags = semver.prerelease(cur.packageJson.version);
+      const isNonRcPrerelease = prereleaseTags && !prereleaseTags[0].includes('rc');
+      acc[cur.packageJson.name] = isNonRcPrerelease
+        ? { replace: '@fluentui/react-components/unstable' }
+        : { replace: '@fluentui/react-components' };
+    }
+
+    return acc;
+  }, /** @type import('storybook-addon-export-to-codesandbox').BabelPluginOptions*/ ({}));
 }

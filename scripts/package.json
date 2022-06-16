@@ -4,8 +4,7 @@
   "private": true,
   "main": "./index.js",
   "bin": {
-    "just-scripts": "./just-scripts.js",
-    "e2e": "./cypress.js"
+    "just-scripts": "./just-scripts.js"
   },
   "scripts": {
     "build": "echo no-op",
@@ -44,8 +43,6 @@
     "doctoc": "^2.0.1",
     "doctrine": "^3.0.0",
     "dotparser": "^1.0.0",
-    "enzyme": "~3.10.0",
-    "enzyme-adapter-react-16": "^1.15.0",
     "extract-comments": "^1.0.0",
     "find-free-port": "~2.0.0",
     "graphviz": "^0.0.9",
@@ -63,7 +60,6 @@
     "markdown-table": "^2.0.0",
     "node-plop": "^0.25.0",
     "node-polyfill-webpack-plugin": "^1.0.2",
-    "node-sass": "^6.0.1",
     "p-queue": "^6.0.2",
     "path-browserify": "^1.0.1",
     "plop": "^2.6.0",

@@ -1,8 +1,62 @@
 # Change Log - @fluentui/eslint-plugin
 
-This log was last generated on Tue, 25 Jan 2022 07:30:06 GMT and should not be manually modified.
+This log was last generated on Fri, 27 May 2022 07:39:11 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## [1.9.1](https://github.com/microsoft/fluentui/tree/@fluentui/eslint-plugin_v1.9.1)
+
+Fri, 27 May 2022 07:39:11 GMT 
+[Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/eslint-plugin_v1.9.0..@fluentui/eslint-plugin_v1.9.1)
+
+### Patches
+
+- fix(eslint-plugin): move ban-context to react config from base ([PR #23240](https://github.com/microsoft/fluentui/pull/23240) by martinhochel@microsoft.com)
+
+## [1.9.0](https://github.com/microsoft/fluentui/tree/@fluentui/eslint-plugin_v1.9.0)
+
+Wed, 18 May 2022 07:41:14 GMT 
+[Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/eslint-plugin_v1.8.0..@fluentui/eslint-plugin_v1.9.0)
+
+### Minor changes
+
+- feat: create core base for react/node/legacy lint configs ([PR #22128](https://github.com/microsoft/fluentui/pull/22128) by martinhochel@microsoft.com)
+
+## [1.8.0](https://github.com/microsoft/fluentui/tree/@fluentui/eslint-plugin_v1.8.0)
+
+Fri, 13 May 2022 07:45:34 GMT 
+[Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/eslint-plugin_v1.7.0..@fluentui/eslint-plugin_v1.8.0)
+
+### Minor changes
+
+- feat: add new rules covering usage of Griffel ([PR #22961](https://github.com/microsoft/fluentui/pull/22961) by olfedias@microsoft.com)
+
+## [1.7.0](https://github.com/microsoft/fluentui/tree/@fluentui/eslint-plugin_v1.7.0)
+
+Wed, 16 Mar 2022 07:38:50 GMT 
+[Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/eslint-plugin_v1.6.3..@fluentui/eslint-plugin_v1.7.0)
+
+### Minor changes
+
+- feat(eslint-plugin): enable no-export-all:all for all packages public API ([PR #22073](https://github.com/microsoft/fluentui/pull/22073) by martinhochel@microsoft.com)
+
+## [1.6.3](https://github.com/microsoft/fluentui/tree/@fluentui/eslint-plugin_v1.6.3)
+
+Fri, 11 Mar 2022 07:34:40 GMT 
+[Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/eslint-plugin_v1.6.2..@fluentui/eslint-plugin_v1.6.3)
+
+### Patches
+
+- fix(eslint-plugin): make import/no-extraneous-dependencies work for react config ([PR #21924](https://github.com/microsoft/fluentui/pull/21924) by martinhochel@microsoft.com)
+
+## [1.6.2](https://github.com/microsoft/fluentui/tree/@fluentui/eslint-plugin_v1.6.2)
+
+Mon, 14 Feb 2022 07:26:36 GMT 
+[Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/eslint-plugin_v1.6.1..@fluentui/eslint-plugin_v1.6.2)
+
+### Patches
+
+- Add ./e2e to list of files allowing devDependencies ([PR #21678](https://github.com/microsoft/fluentui/pull/21678) by elcraig@microsoft.com)
 
 ## [1.6.1](https://github.com/microsoft/fluentui/tree/@fluentui/eslint-plugin_v1.6.1)
 

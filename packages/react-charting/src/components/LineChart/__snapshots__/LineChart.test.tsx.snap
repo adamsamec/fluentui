@@ -17,6 +17,7 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
         width: 100%;
       }
   id="chart_6"
+  onMouseLeave={[Function]}
   role="presentation"
 >
   <div
@@ -49,9 +50,9 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & line {
@@ -59,7 +60,7 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
               stroke: #323130;
               width: 1px;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -78,9 +79,9 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & path {
@@ -90,7 +91,7 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
               opacity: 0.2;
               stroke: #323130;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -100,7 +101,7 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
       <g>
         <line
           id="verticalLine3"
-          stroke="steelblue"
+          stroke="#C8C8C8"
           strokeDasharray="5,5"
           visibility="hidden"
           x1={0}
@@ -141,7 +142,7 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
           <path
             d="M-20.5 20
@@ -160,7 +161,7 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
         </g>
       </g>
@@ -259,7 +260,7 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
                         top: 1px;
                         z-index: 1;
                       }
-                      @media screen and (-ms-high-contrast: active), (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
+                      @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
                         outline-color: #605e5c;
                       }
                   data-is-focusable={true}
@@ -282,7 +283,7 @@ exports[`LineChart snapShot testing renders LineChart correctly 1`] = `
                           margin-right: 8px;
                           width: 12px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){& {
                           content: linear-gradient(to right, red, red);
                           opacity: ;
                         }
@@ -331,6 +332,7 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
         width: 100%;
       }
   id="chart_30"
+  onMouseLeave={[Function]}
   role="presentation"
 >
   <div
@@ -363,9 +365,9 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & line {
@@ -373,7 +375,7 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
               stroke: #323130;
               width: 1px;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -392,9 +394,9 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & path {
@@ -404,7 +406,7 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
               opacity: 0.2;
               stroke: #323130;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -414,7 +416,7 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
       <g>
         <line
           id="verticalLine27"
-          stroke="steelblue"
+          stroke="#C8C8C8"
           strokeDasharray="5,5"
           visibility="hidden"
           x1={0}
@@ -455,7 +457,7 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
           <path
             d="M-20.5 20
@@ -474,7 +476,7 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
         </g>
       </g>
@@ -556,7 +558,7 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
                   top: 1px;
                   z-index: 1;
                 }
-                @media screen and (-ms-high-contrast: active), (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
+                @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
                   outline-color: #605e5c;
                 }
             data-is-focusable={true}
@@ -579,7 +581,7 @@ exports[`LineChart snapShot testing renders enabledLegendsWrapLines correctly 1`
                     margin-right: 8px;
                     width: 12px;
                   }
-                  @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                  @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){& {
                     content: linear-gradient(to right, red, red);
                     opacity: ;
                   }
@@ -625,6 +627,7 @@ exports[`LineChart snapShot testing renders hideLegend correctly 1`] = `
         width: 100%;
       }
   id="chart_14"
+  onMouseLeave={[Function]}
   role="presentation"
 >
   <div
@@ -657,9 +660,9 @@ exports[`LineChart snapShot testing renders hideLegend correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & line {
@@ -667,7 +670,7 @@ exports[`LineChart snapShot testing renders hideLegend correctly 1`] = `
               stroke: #323130;
               width: 1px;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -686,9 +689,9 @@ exports[`LineChart snapShot testing renders hideLegend correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & path {
@@ -698,7 +701,7 @@ exports[`LineChart snapShot testing renders hideLegend correctly 1`] = `
               opacity: 0.2;
               stroke: #323130;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -708,7 +711,7 @@ exports[`LineChart snapShot testing renders hideLegend correctly 1`] = `
       <g>
         <line
           id="verticalLine11"
-          stroke="steelblue"
+          stroke="#C8C8C8"
           strokeDasharray="5,5"
           visibility="hidden"
           x1={0}
@@ -749,7 +752,7 @@ exports[`LineChart snapShot testing renders hideLegend correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
           <path
             d="M-20.5 20
@@ -768,7 +771,7 @@ exports[`LineChart snapShot testing renders hideLegend correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
         </g>
       </g>
@@ -794,6 +797,7 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
         width: 100%;
       }
   id="chart_22"
+  onMouseLeave={[Function]}
   role="presentation"
 >
   <div
@@ -826,9 +830,9 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & line {
@@ -836,7 +840,7 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
               stroke: #323130;
               width: 1px;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -855,9 +859,9 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & path {
@@ -867,7 +871,7 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
               opacity: 0.2;
               stroke: #323130;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -877,7 +881,7 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
       <g>
         <line
           id="verticalLine19"
-          stroke="steelblue"
+          stroke="#C8C8C8"
           strokeDasharray="5,5"
           visibility="hidden"
           x1={0}
@@ -918,7 +922,7 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
           <path
             d="M-20.5 20
@@ -937,7 +941,7 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
         </g>
       </g>
@@ -1036,7 +1040,7 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
                         top: 1px;
                         z-index: 1;
                       }
-                      @media screen and (-ms-high-contrast: active), (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
+                      @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
                         outline-color: #605e5c;
                       }
                   data-is-focusable={true}
@@ -1059,7 +1063,7 @@ exports[`LineChart snapShot testing renders hideTooltip correctly 1`] = `
                           margin-right: 8px;
                           width: 12px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){& {
                           content: linear-gradient(to right, red, red);
                           opacity: ;
                         }
@@ -1108,6 +1112,7 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
         width: 100%;
       }
   id="chart_38"
+  onMouseLeave={[Function]}
   role="presentation"
 >
   <div
@@ -1140,9 +1145,9 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & line {
@@ -1150,7 +1155,7 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
               stroke: #323130;
               width: 1px;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -1169,9 +1174,9 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & path {
@@ -1181,7 +1186,7 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
               opacity: 0.2;
               stroke: #323130;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -1191,7 +1196,7 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
       <g>
         <line
           id="verticalLine35"
-          stroke="steelblue"
+          stroke="#C8C8C8"
           strokeDasharray="5,5"
           visibility="hidden"
           x1={0}
@@ -1232,7 +1237,7 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
           <path
             d="M-20.5 20
@@ -1251,7 +1256,7 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
         </g>
       </g>
@@ -1350,7 +1355,7 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
                         top: 1px;
                         z-index: 1;
                       }
-                      @media screen and (-ms-high-contrast: active), (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
+                      @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
                         outline-color: #605e5c;
                       }
                   data-is-focusable={true}
@@ -1373,7 +1378,7 @@ exports[`LineChart snapShot testing renders showXAxisLablesTooltip correctly 1`]
                           margin-right: 8px;
                           width: 12px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){& {
                           content: linear-gradient(to right, red, red);
                           opacity: ;
                         }
@@ -1422,6 +1427,7 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
         width: 100%;
       }
   id="chart_46"
+  onMouseLeave={[Function]}
   role="presentation"
 >
   <div
@@ -1454,9 +1460,9 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & line {
@@ -1464,7 +1470,7 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
               stroke: #323130;
               width: 1px;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -1483,9 +1489,9 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & path {
@@ -1495,7 +1501,7 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
               opacity: 0.2;
               stroke: #323130;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -1505,7 +1511,7 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
       <g>
         <line
           id="verticalLine43"
-          stroke="steelblue"
+          stroke="#C8C8C8"
           strokeDasharray="5,5"
           visibility="hidden"
           x1={0}
@@ -1546,7 +1552,7 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
           <path
             d="M-20.5 20
@@ -1565,7 +1571,7 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
         </g>
       </g>
@@ -1664,7 +1670,7 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
                         top: 1px;
                         z-index: 1;
                       }
-                      @media screen and (-ms-high-contrast: active), (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
+                      @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
                         outline-color: #605e5c;
                       }
                   data-is-focusable={true}
@@ -1687,7 +1693,7 @@ exports[`LineChart snapShot testing renders wrapXAxisLables correctly 1`] = `
                           margin-right: 8px;
                           width: 12px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){& {
                           content: linear-gradient(to right, red, red);
                           opacity: ;
                         }
@@ -1736,6 +1742,7 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
         width: 100%;
       }
   id="chart_54"
+  onMouseLeave={[Function]}
   role="presentation"
 >
   <div
@@ -1768,9 +1775,9 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & line {
@@ -1778,7 +1785,7 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
               stroke: #323130;
               width: 1px;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -1797,9 +1804,9 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
               fill: #323130;
               font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
               font-size: 10px;
-              font-weight: 400;
+              font-weight: 600;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& text {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
               fill: rgb(179, 179, 179);
             }
             & path {
@@ -1809,7 +1816,7 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
               opacity: 0.2;
               stroke: #323130;
             }
-            @media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black){& line {
+            @media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
               opacity: 0.1;
               stroke: rgb(179, 179, 179);
             }
@@ -1819,7 +1826,7 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
       <g>
         <line
           id="verticalLine51"
-          stroke="steelblue"
+          stroke="#C8C8C8"
           strokeDasharray="5,5"
           visibility="hidden"
           x1={0}
@@ -1860,7 +1867,7 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
           <path
             d="M-20.5 20
@@ -1879,7 +1886,7 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
             onMouseOver={[Function]}
             opacity={1}
             stroke="red"
-            strokeWidth={2}
+            strokeWidth={4}
           />
         </g>
       </g>
@@ -1978,7 +1985,7 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
                         top: 1px;
                         z-index: 1;
                       }
-                      @media screen and (-ms-high-contrast: active), (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
+                      @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
                         outline-color: #605e5c;
                       }
                   data-is-focusable={true}
@@ -2001,7 +2008,7 @@ exports[`LineChart snapShot testing renders yAxisTickFormat correctly 1`] = `
                           margin-right: 8px;
                           width: 12px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active){& {
                           content: linear-gradient(to right, red, red);
                           opacity: ;
                         }

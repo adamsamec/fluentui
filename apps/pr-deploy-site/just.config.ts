@@ -24,11 +24,13 @@ const dependencies = [
   '@fluentui/public-docsite',
   '@fluentui/react',
   '@fluentui/react-charting',
-  '@fluentui/react-components',
+  '@fluentui/public-docsite-v9',
   '@fluentui/react-experiments',
   '@fluentui/web-components',
   '@fluentui/perf-test',
   '@fluentui/theming-designer',
+  '@fluentui/theme-designer',
+  '@fluentui/perf-test-react-components',
 ];
 
 const allPackages = getAllPackageInfo();

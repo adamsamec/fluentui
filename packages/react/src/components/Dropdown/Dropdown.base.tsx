@@ -31,7 +31,7 @@ import { ResponsiveMode, useResponsiveMode } from '../../ResponsiveMode';
 import { SelectableOptionMenuItemType, getAllSelectedOptions } from '../../SelectableOption';
 // import and use V7 Checkbox to ensure no breaking changes.
 import { Checkbox } from '../../Checkbox';
-import { getPropsWithDefaults } from '@fluentui/utilities';
+import { getNextElement, getPreviousElement, getPropsWithDefaults } from '@fluentui/utilities';
 import { useMergedRefs, usePrevious } from '@fluentui/react-hooks';
 import type { IStyleFunctionOrObject } from '../../Utilities';
 import type {
@@ -48,6 +48,7 @@ import type { IPanelStyleProps, IPanelStyles } from '../../Panel';
 import type { IWithResponsiveModeState } from '../../ResponsiveMode';
 import type { ISelectableDroppableTextProps } from '../../SelectableOption';
 import type { ICheckboxStyleProps, ICheckboxStyles } from '../../Checkbox';
+import { IFocusTrapZoneProps } from '../FocusTrapZone/FocusTrapZone.types';
 
 const COMPONENT_NAME = 'Dropdown';
 const getClassNames = classNamesFunction<IDropdownStyleProps, IDropdownStyles>();
@@ -56,7 +57,7 @@ const getClassNames = classNamesFunction<IDropdownStyleProps, IDropdownStyles>()
 // eslint-disable-next-line deprecation/deprecation
 interface IDropdownInternalProps extends Omit<IDropdownProps, 'ref'>, IWithResponsiveModeState {
   hoisted: {
-    rootRef: React.Ref<HTMLDivElement>;
+    rootRef: React.RefObject<HTMLDivElement>;
     selectedIndices: number[];
     setSelectedIndices: React.Dispatch<React.SetStateAction<number[]>>;
   };
@@ -411,6 +412,14 @@ class DropdownInternal extends React.Component<IDropdownInternalProps, IDropdown
     );
   }
 
+  /**
+   * Close menu callout if it is open
+   */
+  public dismissMenu = (): void => {
+    const { isOpen } = this.state;
+    isOpen && this.setState({ isOpen: false });
+  };
+
   public focus(shouldOpenOnFocus?: boolean): void {
     if (this._dropDown.current) {
       this._dropDown.current.focus();
@@ -586,6 +595,7 @@ class DropdownInternal extends React.Component<IDropdownInternalProps, IDropdown
 
     const isSmall = responsiveMode! <= ResponsiveMode.medium;
 
+    const focusTrapZoneProps: IFocusTrapZoneProps = { firstFocusableTarget: `#${this._listId}1` };
     const panelStyles = this._classNames.subComponentStyles
       ? (this._classNames.subComponentStyles.panel as IStyleFunctionOrObject<IPanelStyleProps, IPanelStyles>)
       : undefined;
@@ -600,10 +610,12 @@ class DropdownInternal extends React.Component<IDropdownInternalProps, IDropdown
 
     return isSmall ? (
       <Panel
+        closeButtonAriaLabel="Close"
+        focusTrapZoneProps={focusTrapZoneProps}
+        hasCloseButton
         isOpen={true}
         isLightDismiss={true}
         onDismiss={this._onDismiss}
-        hasCloseButton={false}
         styles={panelStyles}
         {...panelProps}
       >
@@ -1180,7 +1192,17 @@ class DropdownInternal extends React.Component<IDropdownInternalProps, IDropdown
 
       case KeyCodes.tab:
         this.setState({ isOpen: false });
-        return;
+
+        const document = getDocument();
+
+        if (document) {
+          if (ev.shiftKey) {
+            getPreviousElement(document.body, this._dropDown.current, false, false, true, true)?.focus();
+          } else {
+            getNextElement(document.body, this._dropDown.current, false, false, true, true)?.focus();
+          }
+        }
+        break;
 
       default:
         return;

@@ -98,6 +98,30 @@ export interface ISelectionZoneProps extends React.ClassAttributes<SelectionZone
    */
   isSelectedOnFocus?: boolean;
   /**
+   * Determines if elements within the selection zone that DO NOT have the 'data-selection-toggle' or
+   * 'data-selection-all-toggle' attribute are clickable and can alter the selection.
+   *
+   * @defaultvalue true
+   */
+  selectionClearedOnSurfaceClick?: boolean;
+
+  /**
+   * Determines if pressing the Escape clears the selection.
+   *
+   * @defaultvalue true
+   */
+  selectionClearedOnEscapePress?: boolean;
+
+  /**
+   * Allows the default toggle behavior to be overridden.
+   * When set to `true` users do not have press a modifier key (e.g., ctrl or meta)
+   * to toggle values.
+   *
+   * @default false
+   */
+  toggleWithoutModifierPressed?: boolean;
+
+  /**
    * Optional callback for when an item is
    * invoked via ENTER or double-click.
    */
@@ -126,7 +150,9 @@ export interface ISelectionZoneState {
 export class SelectionZone extends React.Component<ISelectionZoneProps, ISelectionZoneState> {
   public static defaultProps = {
     isSelectedOnFocus: true,
+    toggleWithoutModifierPressed: false,
     selectionMode: SelectionMode.multiple,
+    selectionClearedOnEscapePress: true,
   };
 
   private _async: Async;
@@ -326,7 +352,8 @@ export class SelectionZone extends React.Component<ISelectionZoneProps, ISelecti
           (target === itemRoot || this._shouldAutoSelect(target)) &&
           !this._isShiftPressed &&
           !this._isCtrlPressed &&
-          !this._isMetaPressed
+          !this._isMetaPressed &&
+          !this.props.toggleWithoutModifierPressed
         ) {
           this._onInvokeMouseDown(ev, this._getItemIndex(itemRoot));
           break;
@@ -480,7 +507,7 @@ export class SelectionZone extends React.Component<ISelectionZoneProps, ISelecti
 
     const isSelectionDisabled = this._isSelectionDisabled(target);
 
-    const { selection } = this.props;
+    const { selection, selectionClearedOnEscapePress } = this.props;
     // eslint-disable-next-line deprecation/deprecation
     const isSelectAllKey = ev.which === KeyCodes.a && (this._isCtrlPressed || this._isMetaPressed);
     // eslint-disable-next-line deprecation/deprecation
@@ -504,8 +531,9 @@ export class SelectionZone extends React.Component<ISelectionZoneProps, ISelecti
       return;
     }
 
-    // If escape is pressed, clear selection (if any are selected.)
-    if (isClearSelectionKey && selection.getSelectedCount() > 0) {
+    // If escape is pressed and the component is configured to clear on escape press,
+    // clear selection (if any are selected.)
+    if (selectionClearedOnEscapePress && isClearSelectionKey && selection.getSelectedCount() > 0) {
       if (!isSelectionDisabled) {
         selection.setAllSelected(false);
       }
@@ -622,7 +650,7 @@ export class SelectionZone extends React.Component<ISelectionZoneProps, ISelecti
   }
 
   private _onItemSurfaceClick(ev: React.SyntheticEvent<HTMLElement>, index: number): void {
-    const { selection } = this.props;
+    const { selection, toggleWithoutModifierPressed } = this.props;
     const isToggleModifierPressed = this._isCtrlPressed || this._isMetaPressed;
 
     const selectionMode = this._getSelectionMode();
@@ -630,7 +658,7 @@ export class SelectionZone extends React.Component<ISelectionZoneProps, ISelecti
     if (selectionMode === SelectionMode.multiple) {
       if (this._isShiftPressed && !this._isTabPressed) {
         selection.selectToIndex(index, !isToggleModifierPressed);
-      } else if (isToggleModifierPressed) {
+      } else if (isToggleModifierPressed || toggleWithoutModifierPressed) {
         selection.toggleIndexSelected(index);
       } else {
         this._clearAndSelectIndex(index);
@@ -680,10 +708,10 @@ export class SelectionZone extends React.Component<ISelectionZoneProps, ISelecti
   }
 
   private _clearAndSelectIndex(index: number): void {
-    const { selection } = this.props;
+    const { selection, selectionClearedOnSurfaceClick = true } = this.props;
     const isAlreadySingleSelected = selection.getSelectedCount() === 1 && selection.isIndexSelected(index);
 
-    if (!isAlreadySingleSelected) {
+    if (!isAlreadySingleSelected && selectionClearedOnSurfaceClick) {
       const isModal = selection.isModal && selection.isModal();
       selection.setChangeEvents(false);
       selection.setAllSelected(false);
@@ -709,6 +737,7 @@ export class SelectionZone extends React.Component<ISelectionZoneProps, ISelecti
     this._isCtrlPressed = ev.ctrlKey;
     this._isMetaPressed = ev.metaKey;
 
+    // eslint-disable-next-line deprecation/deprecation
     const keyCode = (ev as React.KeyboardEvent<HTMLElement>).keyCode;
     this._isTabPressed = keyCode ? keyCode === KeyCodes.tab : false;
   }
@@ -754,7 +783,12 @@ export class SelectionZone extends React.Component<ISelectionZoneProps, ISelecti
   }
 
   private _isInputElement(element: HTMLElement): boolean {
-    return element.tagName === 'INPUT' || element.tagName === 'TEXTAREA';
+    return (
+      element.tagName === 'INPUT' ||
+      element.tagName === 'TEXTAREA' ||
+      element.getAttribute('contenteditable') === 'true' ||
+      element.getAttribute('contenteditable') === ''
+    );
   }
 
   private _isNonHandledClick(element: HTMLElement): boolean {

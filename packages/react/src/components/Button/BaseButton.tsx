@@ -638,7 +638,7 @@ export class BaseButton extends React.Component<IBaseButtonProps, IBaseButtonSta
         aria-roledescription={buttonProps['aria-roledescription']}
         onFocusCapture={this._onSplitContainerFocusCapture}
       >
-        <span style={{ display: 'flex' }}>
+        <span style={{ display: 'flex', width: '100%' }}>
           {this._onRenderContent(tag, buttonProps)}
           {this._onRenderSplitButtonMenuButton(classNames, keytipAttributes)}
           {this._onRenderSplitButtonDivider(classNames)}
@@ -931,13 +931,20 @@ export class BaseButton extends React.Component<IBaseButtonProps, IBaseButtonSta
   private _onMenuClick = (
     ev: React.MouseEvent<HTMLDivElement | HTMLButtonElement | HTMLAnchorElement | HTMLSpanElement>,
   ) => {
-    const { onMenuClick } = this.props;
+    const { onMenuClick, menuProps } = this.props;
     if (onMenuClick) {
       onMenuClick(ev, this.props);
     }
 
+    // focus on the container by default when the menu is opened with a click event
+    // this differentiates from a keyboard interaction triggering the click event
+    const shouldFocusOnContainer =
+      typeof menuProps?.shouldFocusOnContainer === 'boolean'
+        ? menuProps.shouldFocusOnContainer
+        : (ev.nativeEvent as PointerEvent).pointerType === 'mouse';
+
     if (!ev.defaultPrevented) {
-      this._onToggleMenu(false);
+      this._onToggleMenu(shouldFocusOnContainer);
       ev.preventDefault();
       ev.stopPropagation();
     }

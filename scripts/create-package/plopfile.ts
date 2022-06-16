@@ -12,12 +12,12 @@ import { WorkspaceJsonConfiguration } from '@nrwl/tao/src/shared/workspace';
 const root = findGitRoot();
 
 const v8ReferencePackages = {
-  react: ['react'],
-  node: ['codemods'],
+  react: ['@fluentui/react'],
+  node: ['@fluentui/codemods'],
 };
 const convergedReferencePackages = {
-  react: ['react-provider'],
-  node: ['babel-make-styles'],
+  react: ['@fluentui/react-provider'],
+  node: ['@fluentui/react-conformance-griffel'],
 };
 
 interface Answers {
@@ -25,6 +25,7 @@ interface Answers {
   packageName: string;
   target: 'react' | 'node';
   description: string;
+  codeowner: string;
   hasTests?: boolean;
   isConverged?: boolean;
 }
@@ -56,6 +57,18 @@ module.exports = (plop: NodePlopAPI) => {
         validate: (input: string) => !!input || 'Must enter a description',
       },
       {
+        type: 'list',
+        name: 'codeowner',
+        message: 'Provide team that owns this package',
+        choices: [
+          '@microsoft/fluentui-react-build',
+          '@microsoft/teams-prg',
+          '@microsoft/cxe-coastal',
+          '@microsoft/cxe-red',
+          '@microsoft/cxe-prg',
+        ],
+      },
+      {
         type: 'confirm',
         name: 'hasTests',
         message: 'Will this package have tests?',
@@ -73,7 +86,7 @@ module.exports = (plop: NodePlopAPI) => {
       if (answers.target === 'react') answers = { hasTests: true, ...answers };
       const { packageName, target, hasTests } = answers;
 
-      const destination = `packages/${packageName}`;
+      const destination = answers.isConverged ? `packages/react-components/${packageName}` : `packages/${packageName}`;
       const globOptions: AddManyActionConfig['globOptions'] = { dot: true };
 
       // Get derived template parameters
@@ -84,6 +97,7 @@ module.exports = (plop: NodePlopAPI) => {
           /^.|-./g, // first char or char after -
           (substr, index) => (index > 0 ? ' ' : '') + substr.replace('-', '').toUpperCase(),
         ),
+        owner: answers.codeowner,
       };
 
       return [
@@ -131,7 +145,13 @@ module.exports = (plop: NodePlopAPI) => {
           console.log(`\nRunning migrate-converged-pkg...`);
           const migrateResult = spawnSync(
             'yarn',
-            ['nx', 'workspace-generator', 'migrate-converged-pkg', `--name='${data.packageNpmName}'`],
+            [
+              'nx',
+              'workspace-generator',
+              'migrate-converged-pkg',
+              `--name='${data.packageNpmName}'`,
+              `--owner='${data.owner}'`,
+            ],
             { cwd: root, stdio: 'inherit', shell: true },
           );
           if (migrateResult.status !== 0) {
@@ -168,11 +188,20 @@ function replaceVersionsFromReference(
   newPackageJson: PackageJson,
   answers: Answers,
 ): void {
+  if (referencePackages.length === 0) {
+    return;
+  }
+
   const depTypes = ['dependencies', 'devDependencies', 'peerDependencies'] as const;
 
   // Read the package.json files of the given reference packages and combine into one object.
   // This way if a dep is defined in any of them, it can easily be copied to newPackageJson.
-  const packageJsons = referencePackages.map(pkg => fs.readJSONSync(path.join(root, 'packages', pkg, 'package.json')));
+  const packageJsons = referencePackages.map(pkgName => {
+    const metadata = getProjectMetadata({ root, name: pkgName });
+
+    return fs.readJSONSync(path.join(metadata.root, 'package.json'));
+  });
+
   const referenceDeps: Pick<PackageJson, 'dependencies' | 'devDependencies' | 'peerDependencies'> = _.merge(
     {},
     ...packageJsons.map(pkg => _.pick(pkg, ...depTypes)),
@@ -204,12 +233,10 @@ function replaceVersionsFromReference(
   }
 
   if (answers.isConverged) {
-    // Update the version and beachball config in package.json to match the current v9 ones
-    if (packageJsons[0].version?.[0] === '9') {
-      newPackageJson.version = packageJsons[0].version;
-    } else {
+    if (packageJsons[0].version?.[0] !== '9') {
       throw new Error(`Converged reference package ${packageJsons[0].name} does not appear to have version 9.x`);
     }
+    // Update beachball config in package.json to match the current v9
     if (packageJsons[0].beachball) {
       newPackageJson.beachball = packageJsons[0].beachball;
     }
@@ -272,4 +299,12 @@ function updateNxWorkspace(_answers: Answers, config: { root: string; projectNam
   const updatedNxWorkspace = jju.update(nxWorkspaceContent, nxWorkspace, { mode: 'json', indent: 2 });
 
   fs.writeFileSync(paths.workspace, updatedNxWorkspace, 'utf-8');
+}
+
+function getProjectMetadata(options: { root: string; name: string }) {
+  const nxWorkspace: WorkspaceJsonConfiguration = JSON.parse(
+    fs.readFileSync(path.join(options.root, 'workspace.json'), 'utf-8'),
+  );
+
+  return nxWorkspace.projects[options.name];
 }

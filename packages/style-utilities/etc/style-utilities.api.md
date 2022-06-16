@@ -4,45 +4,45 @@
 
 ```ts
 
-import { AnimationStyles } from '@fluentui/theme/lib/motion/AnimationStyles';
-import { AnimationVariables } from '@fluentui/theme/lib/motion/AnimationStyles';
+import { AnimationStyles } from '@fluentui/theme';
+import { AnimationVariables } from '@fluentui/theme';
 import { concatStyleSets } from '@fluentui/merge-styles';
 import { concatStyleSetsWithProps } from '@fluentui/merge-styles';
-import { createFontStyles } from '@fluentui/theme/lib/fonts/index';
-import { createTheme } from '@fluentui/theme/lib/createTheme';
-import { DefaultEffects } from '@fluentui/theme/lib/effects/DefaultEffects';
-import { DefaultFontStyles } from '@fluentui/theme/lib/fonts/DefaultFontStyles';
-import { DefaultPalette } from '@fluentui/theme/lib/colors/DefaultPalette';
+import { createFontStyles } from '@fluentui/theme';
+import { createTheme } from '@fluentui/theme';
+import { DefaultEffects } from '@fluentui/theme';
+import { DefaultFontStyles } from '@fluentui/theme';
+import { DefaultPalette } from '@fluentui/theme';
 import { fontFace } from '@fluentui/merge-styles';
-import { FontSizes } from '@fluentui/theme/lib/fonts/index';
-import { FontWeights } from '@fluentui/theme/lib/fonts/index';
-import { IAnimationStyles } from '@fluentui/theme/lib/types/IAnimationStyles';
-import { IAnimationVariables } from '@fluentui/theme/lib/types/IAnimationStyles';
-import { IconFontSizes } from '@fluentui/theme/lib/fonts/index';
+import { FontSizes } from '@fluentui/theme';
+import { FontWeights } from '@fluentui/theme';
+import { IAnimationStyles } from '@fluentui/theme';
+import { IAnimationVariables } from '@fluentui/theme';
+import { IconFontSizes } from '@fluentui/theme';
 import { ICSPSettings } from '@fluentui/merge-styles';
 import type { ICustomizerContext } from '@fluentui/utilities';
-import { IEffects } from '@fluentui/theme/lib/types/IEffects';
+import { IEffects } from '@fluentui/theme';
 import { IFontFace } from '@fluentui/merge-styles';
-import { IFontStyles } from '@fluentui/theme/lib/types/IFontStyles';
+import { IFontStyles } from '@fluentui/theme';
 import { IFontWeight } from '@fluentui/merge-styles';
 import { InjectionMode } from '@fluentui/merge-styles';
-import { IPalette } from '@fluentui/theme/lib/types/IPalette';
-import { IPartialTheme } from '@fluentui/theme/lib/types/ITheme';
+import { IPalette } from '@fluentui/theme';
+import { IPartialTheme } from '@fluentui/theme';
 import { IProcessedStyleSet } from '@fluentui/merge-styles';
 import { IRawStyle } from '@fluentui/merge-styles';
-import { IScheme } from '@fluentui/theme/lib/types/ITheme';
-import { ISchemeNames } from '@fluentui/theme/lib/types/ITheme';
-import { ISemanticColors } from '@fluentui/theme/lib/types/ISemanticColors';
-import { ISemanticTextColors } from '@fluentui/theme/lib/types/ISemanticTextColors';
-import { ISpacing } from '@fluentui/theme/lib/types/ISpacing';
+import { IScheme } from '@fluentui/theme';
+import { ISchemeNames } from '@fluentui/theme';
+import { ISemanticColors } from '@fluentui/theme';
+import { ISemanticTextColors } from '@fluentui/theme';
+import { ISpacing } from '@fluentui/theme';
 import { IStyle } from '@fluentui/merge-styles';
 import { IStyleSet } from '@fluentui/merge-styles';
 import { IStyleSheetConfig } from '@fluentui/merge-styles';
-import { ITheme } from '@fluentui/theme/lib/types/ITheme';
+import { ITheme } from '@fluentui/theme';
 import { keyframes } from '@fluentui/merge-styles';
 import { mergeStyles } from '@fluentui/merge-styles';
 import { mergeStyleSets } from '@fluentui/merge-styles';
-import { registerDefaultFontFaces } from '@fluentui/theme/lib/fonts/DefaultFontStyles';
+import { registerDefaultFontFaces } from '@fluentui/theme';
 import { Stylesheet } from '@fluentui/merge-styles';
 
 // @public (undocumented)
@@ -78,8 +78,8 @@ export { DefaultFontStyles }
 
 export { DefaultPalette }
 
-// @public (undocumented)
-export const EdgeChromiumHighContrastSelector = "@media screen and (forced-colors: active)";
+// @public @deprecated (undocumented)
+export const EdgeChromiumHighContrastSelector = "@media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active)";
 
 // @public
 export function focusClear(): IRawStyle;
@@ -148,13 +148,13 @@ export type GlobalClassNames<IStyles> = Record<keyof IStyles, string>;
 export const hiddenContentStyle: IRawStyle;
 
 // @public (undocumented)
-export const HighContrastSelector = "@media screen and (-ms-high-contrast: active), (forced-colors: active)";
+export const HighContrastSelector = "@media screen and (-ms-high-contrast: active), @media screen and (forced-colors: active)";
 
 // @public (undocumented)
-export const HighContrastSelectorBlack = "@media screen and (-ms-high-contrast: white-on-black), (forced-colors: white-on-black)";
+export const HighContrastSelectorBlack = "@media screen and (-ms-high-contrast: white-on-black), @media screen and (forced-colors: active) and (prefers-color-scheme: dark)";
 
 // @public (undocumented)
-export const HighContrastSelectorWhite = "@media screen and (-ms-high-contrast: black-on-white), (forced-colors: black-on-white)";
+export const HighContrastSelectorWhite = "@media screen and (-ms-high-contrast: black-on-white), @media screen and (forced-colors: active) and (prefers-color-scheme: light)";
 
 export { IAnimationStyles }
 
