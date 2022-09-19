@@ -29,10 +29,13 @@ export const AvoidActionExample = () => {
       </Text>
       <Divider />
       <h2>Problem explanation</h2>
-      <Text block>
-        Instruction on action prolong screen reader narration. It not neccessary information for sceen reader user. This
-        information is already know based on type of component which is used.
-      </Text>
+      <ul>
+        <li>
+          Adding an action instruction (such as "Click here to...") prolongs the narration by screen reader. It adds
+          unnecessary information for screen reader user which is already known to the user based on the type of
+          component beeing used, i.e. a button in this case.
+        </li>
+      </ul>
     </Scenario>
   );
 };
