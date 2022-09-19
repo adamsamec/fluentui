@@ -22,7 +22,7 @@ export const AvoidActionExample = () => {
       <Divider />
       <h2>Good example</h2>
       <Button size="small" icon={<CalendarMonth />}>
-        Calendar
+        Open calendar
       </Button>
       <Text block>
         <Text weight="semibold">Screen reader narration:</Text> "calendar button"
@@ -31,9 +31,9 @@ export const AvoidActionExample = () => {
       <h2>Problem explanation</h2>
       <ul>
         <li>
-          Adding an action instruction (such as "Click here to...") prolongs the narration by screen reader. It adds
-          unnecessary information for screen reader user which is already known to the user based on the type of
-          component beeing used, i.e. a button in this case.
+          Adding the action instruction (such as "Click here to...") to the component accessible name prolongs the name
+          narration by the screen reader when the component is focused. This information is already known to the screen
+          reader user based on the type of component beeing used, i.e. a button in this case.
         </li>
       </ul>
     </Scenario>

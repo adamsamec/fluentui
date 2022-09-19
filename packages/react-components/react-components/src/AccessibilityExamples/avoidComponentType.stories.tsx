@@ -13,7 +13,7 @@ export const AvoidComponentTypeExample = () => {
       <h1>Avoid component type in accessibility name</h1>
 
       <h2>Bad example</h2>
-      <Button aria-label="Click here to open calendar " size="small" icon={<CalendarMonth />}>
+      <Button aria-label="Mute microphone button" size="small" icon={<CalendarMonth />}>
         Calendar
       </Button>
       <Text block>
@@ -22,17 +22,19 @@ export const AvoidComponentTypeExample = () => {
       <Divider />
       <h2>Good example</h2>
       <Button size="small" icon={<CalendarMonth />}>
-        Calendar
+        Mute microphone
       </Button>
       <Text block>
         <Text weight="semibold">Screen reader narration:</Text> "calendar button"
       </Text>
       <Divider />
       <h2>Problem explanation</h2>
-      <Text block>
-        Instruction on action prolong screen reader narration. It not neccessary information for sceen reader user. This
-        information is already know based on type of component which is used.
-      </Text>
+      <ul>
+        <li>
+          Adding the component type (such as "button") to the component accessible name duplicates information that is
+          already provided by the screen reader when the component is focused.
+        </li>
+      </ul>
     </Scenario>
   );
 };
