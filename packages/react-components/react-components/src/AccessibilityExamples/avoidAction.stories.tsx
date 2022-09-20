@@ -37,7 +37,10 @@ export const AvoidActionExample = () => {
           narration by the screen reader when the component is focused. This information is already known to the screen
           reader user based on the type of component beeing used, i.e. a button in this case.
         </li>
-        <li>Verify the component uses the proper HTML element or the proper ARIA role.</li>
+        <li>
+          Verify the component uses the proper HTML element or the proper ARIA role, so that the component type can be
+          recognized by the screen reader.
+        </li>
       </ul>
     </Scenario>
   );
