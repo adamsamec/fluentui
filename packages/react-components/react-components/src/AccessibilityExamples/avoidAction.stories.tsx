@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Button, Text, Divider } from '@fluentui/react-components';
-import { bundleIcon, CalendarMonthFilled, Send24Regular } from '@fluentui/react-icons';
+import { Send24Regular } from '@fluentui/react-icons';
 
 import { Scenario } from './utils';
 
@@ -37,6 +37,7 @@ export const AvoidActionExample = () => {
           narration by the screen reader when the component is focused. This information is already known to the screen
           reader user based on the type of component beeing used, i.e. a button in this case.
         </li>
+        <li>Verify the component uses the proper HTML element or the proper ARIA role.</li>
       </ul>
     </Scenario>
   );

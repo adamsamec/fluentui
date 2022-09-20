@@ -35,6 +35,7 @@ export const AvoidComponentTypeExample = () => {
           Adding the component type (such as "button") to the component accessible name duplicates information that is
           already provided by the screen reader when the component is focused.
         </li>
+        <li>Verify the component uses the proper HTML element or the proper ARIA role.</li>
       </ul>
     </Scenario>
   );
