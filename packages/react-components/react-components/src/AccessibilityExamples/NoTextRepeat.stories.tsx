@@ -41,10 +41,11 @@ export const NoRepeatText = () => {
         </MenuPopover>
       </Menu>
 
+      <h3>Screen reader narration after menu button activation</h3>
       <Text block>
-        <Text weight="semibold">Screen reader(JAWS) narration:</Text> " Participants menu <br></br> Meeting participant
-        Robert Tolbert 1 of 3 To move through items press up or down arrow. <br></br> Meeting participant Celeste Burton
-        2 of 3 <br></br> Meeting participant Cecil Folk 3 of 3"
+        <Text weight="semibold">JAWS:</Text> " Participants menu <br /> Meeting participant Robert Tolbert 1 of 3 To
+        move through items press up or down arrow. <br /> Meeting participant Celeste Burton 2 of 3 <br /> Meeting
+        participant Cecil Folk 3 of 3"
       </Text>
 
       <h3>Implementation details</h3>
@@ -73,10 +74,11 @@ export const NoRepeatText = () => {
         </MenuPopover>
       </Menu>
 
+      <h3>Screen reader narration after menu button activation</h3>
       <Text block>
-        <Text weight="semibold">Screen reader(JAWS) narration:</Text>
-        "Meeting participants menu <br></br> Robert Tolbert 1 of 3 To move through items press up or down arrow.{' '}
-        <br></br> Celeste Burton 2 of 3 <br></br> Cecil Folk 3 of 3"
+        <Text weight="semibold">JAWS:</Text>
+        "Meeting participants menu <br /> Robert Tolbert 1 of 3 To move through items press up or down arrow. <br />{' '}
+        Celeste Burton 2 of 3 <br /> Cecil Folk 3 of 3"
       </Text>
       <h3>Implementation details</h3>
       <ul>
