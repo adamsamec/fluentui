@@ -23,7 +23,7 @@ export const NoRepeatText = () => {
       <h2>Bad example</h2>
       <Menu>
         <MenuTrigger>
-          <Button aria-label="Users" icon={<PeopleRegular />}></Button>
+          <Button aria-label="Participants" icon={<PeopleRegular />}></Button>
         </MenuTrigger>
 
         <MenuPopover>
@@ -49,7 +49,7 @@ export const NoRepeatText = () => {
       <h2>Good example</h2>
       <Menu>
         <MenuTrigger>
-          <Button aria-label="Users" icon={<PeopleRegular />}></Button>
+          <Button aria-label="Participants" icon={<PeopleRegular />}></Button>
         </MenuTrigger>
 
         <MenuPopover>
