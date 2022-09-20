@@ -13,7 +13,8 @@ export const AvoidActionExample = () => {
       <h2>Bad example</h2>
       <Button aria-label="Click here to send message " size="small" icon={<Send24Regular />}></Button>
       <Text block>
-        <Text weight="semibold">Screen reader narration:</Text> "Click here to send message button"
+        <h3>Screen reader narration</h3>
+        <Text weight="semibold">JAWS: </Text>"Click here to send message button"
       </Text>
       <h3>Implementation details</h3>
       <ul>
@@ -23,7 +24,8 @@ export const AvoidActionExample = () => {
       <h2>Good example</h2>
       <Button aria-label="Send message" size="small" icon={<Send24Regular />}></Button>
       <Text block>
-        <Text weight="semibold">Screen reader narration:</Text> "Send message button"
+        <h3>Screen reader narration</h3>
+        <Text weight="semibold">JAWS: </Text>"Send message button"
       </Text>
       <h3>Implementation details</h3>
       <ul>

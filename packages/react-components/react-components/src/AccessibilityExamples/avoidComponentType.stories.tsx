@@ -15,8 +15,8 @@ export const AvoidComponentTypeExample = () => {
         <Text weight="semibold">Added aria label:</Text> aria-label="Mute microphone button"
       </Text>
       <Text block>
-        <Text weight="semibold">Screen reader narration:</Text>
-        "Mute microphone button button"
+        <h3>Screen reader narration</h3>
+        <Text weight="semibold">JAWS: </Text>"Mute microphone button button"
       </Text>
       <h3>Implementation details</h3>
       <ul>
@@ -26,7 +26,8 @@ export const AvoidComponentTypeExample = () => {
       <h2>Good example</h2>
       <Button aria-label="Mute microphone" size="small" icon={<Mic24Regular />}></Button>
       <Text block>
-        <Text weight="semibold">Screen reader narration:</Text> "Mute microphone button"
+        <h3>Screen reader narration</h3>
+        <Text weight="semibold">JAWS: </Text>"Mute microphone button"
       </Text>
       <h3>Implementation details</h3>
       <ul>

@@ -17,7 +17,8 @@ export const AvoidStateExample = () => {
         <Tab value="Activity">Activity</Tab>
       </TabList>
       <Text block>
-        <Text weight="semibold">Screen reader narration:</Text> " Files tab is active tab selected 2 of 3"
+        <h3>Screen reader narration</h3>
+        <Text weight="semibold">JAWS: </Text>"Files tab is active tab selected 2 of 3"
       </Text>
       <h3>Implementation details</h3>
       <ul>
@@ -31,7 +32,8 @@ export const AvoidStateExample = () => {
         <Tab value="Activity">Activity</Tab>
       </TabList>
       <Text block>
-        <Text weight="semibold">Screen reader narration:</Text> "Files tab selected 2 of 3"
+        <h3>Screen reader narration</h3>
+        <Text weight="semibold">JAWS: </Text>"Files tab selected 2 of 3"
       </Text>
       <h3>Implementation details</h3>
       <ul>
