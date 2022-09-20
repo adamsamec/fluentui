@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { Button, Text, Divider, TabList, Tab } from '@fluentui/react-components';
-import { bundleIcon, CalendarMonthFilled, CalendarMonthRegular } from '@fluentui/react-icons';
+import { Text, Divider, TabList, Tab } from '@fluentui/react-components';
 
 import { Scenario } from './utils';
 
@@ -20,6 +19,10 @@ export const AvoidStateExample = () => {
       <Text block>
         <Text weight="semibold">Screen reader narration:</Text> " Files tab is active tab selected 2 of 3"
       </Text>
+      <h3>Implementation details</h3>
+      <ul>
+        <li>aria-label="Files tab is active" was applied on the "Files" tab</li>
+      </ul>
       <Divider />
       <h2>Good example</h2>
       <TabList defaultSelectedValue="Files">
@@ -30,6 +33,10 @@ export const AvoidStateExample = () => {
       <Text block>
         <Text weight="semibold">Screen reader narration:</Text> "Files tab selected 2 of 3"
       </Text>
+      <h3>Implementation details</h3>
+      <ul>
+        <li>no aria-label is needed for "Files" tab</li>
+      </ul>
       <Divider />
       <h2>Problem explanation</h2>
       <ul>

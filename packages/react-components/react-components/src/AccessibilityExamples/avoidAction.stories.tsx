@@ -17,7 +17,7 @@ export const AvoidActionExample = () => {
       </Text>
       <h3>Implementation details</h3>
       <ul>
-        <li>Incorrect aria-label="Click here to send message " was applied on the component.</li>
+        <li>aria-label="Click here to send message" was applied on the component.</li>
       </ul>
       <Divider />
       <h2>Good example</h2>

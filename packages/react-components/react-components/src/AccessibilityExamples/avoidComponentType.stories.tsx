@@ -10,9 +10,7 @@ export const AvoidComponentTypeExample = () => {
     <Scenario pageTitle="Avoid component type in accessibility name">
       <h1>Avoid component type in accessibility name</h1>
       <h2>Bad example</h2>
-      <Button aria-label="Mute microphone button" size="small" icon={<Mic24Regular />}>
-        Mute microphone
-      </Button>
+      <Button aria-label="Mute microphone button" size="small" icon={<Mic24Regular />}></Button>
       <Text block>
         <Text weight="semibold">Added aria label:</Text> aria-label="Mute microphone button"
       </Text>
@@ -20,14 +18,20 @@ export const AvoidComponentTypeExample = () => {
         <Text weight="semibold">Screen reader narration:</Text>
         "Mute microphone button button"
       </Text>
+      <h3>Implementation details</h3>
+      <ul>
+        <li>aria-label="Mute microphone button" was applied on the component.</li>
+      </ul>
       <Divider />
       <h2>Good example</h2>
-      <Button size="small" icon={<Mic24Regular />}>
-        Mute microphone
-      </Button>
+      <Button aria-label="Mute microphone" size="small" icon={<Mic24Regular />}></Button>
       <Text block>
         <Text weight="semibold">Screen reader narration:</Text> "Mute microphone button"
       </Text>
+      <h3>Implementation details</h3>
+      <ul>
+        <li>aria-label="Mute microphone" was applied on the component</li>
+      </ul>
       <Divider />
       <h2>Problem explanation</h2>
       <ul>
