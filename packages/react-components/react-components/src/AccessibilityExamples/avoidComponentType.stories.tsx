@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Button, Text, Divider } from '@fluentui/react-components';
-import { bundleIcon, CalendarMonthFilled, Mic24Regular } from '@fluentui/react-icons';
+import { Mic24Regular } from '@fluentui/react-icons';
 
 import { Scenario } from './utils';
 
