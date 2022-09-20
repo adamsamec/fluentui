@@ -41,9 +41,15 @@ export const NoRepeatText = () => {
         </MenuPopover>
       </Menu>
 
+      <Text block>
+        <Text weight="semibold">Screen reader(JAWS) narration:</Text> " Participants menu <br></br> Meeting participant
+        Robert Tolbert 1 of 3 To move through items press up or down arrow. <br></br> Meeting participant Celeste Burton
+        2 of 3 <br></br> Meeting participant Cecil Folk 3 of 3"
+      </Text>
+
       <h3>Implementation details</h3>
       <ul>
-        <li>aria-label="Files tab is active" was applied on the "Files" tab</li>
+        <li>aria-label="Meeting participant [user name]" was applied on each menuitem</li>
       </ul>
       <Divider />
       <h2>Good example</h2>
@@ -68,20 +74,23 @@ export const NoRepeatText = () => {
       </Menu>
 
       <Text block>
-        <Text weight="semibold">Screen reader narration:</Text> "Files tab selected 2 of 3"
+        <Text weight="semibold">Screen reader(JAWS) narration:</Text>
+        "Meeting participants menu <br></br> Robert Tolbert 1 of 3 To move through items press up or down arrow.{' '}
+        <br></br> Celeste Burton 2 of 3 <br></br> Cecil Folk 3 of 3"
       </Text>
       <h3>Implementation details</h3>
       <ul>
-        <li>no aria-label is needed for "Files" tab</li>
+        <li>no aria-label is needed for each menuitem</li>
+        <li>aria-label="Meeting participants" was applied on menu component</li>
       </ul>
       <Divider />
       <h2>Problem explanation</h2>
       <ul>
-        <li>Adding custom state is not required, because this functionality should provide us the screen reader.</li>
         <li>
-          If state of coponent is not narrated, then verify there is used "aria-checked" or "aria-selected" attribute.
-          See aria documentation for exact usage.
+          Adding the repeating text on each item in the component prolongs the name narration by the screen reader. User
+          needs to wait for content to be narrated.
         </li>
+        <li> Recommendation would be to label the component (menu in our example) with appropriate name.</li>
       </ul>
     </Scenario>
   );
