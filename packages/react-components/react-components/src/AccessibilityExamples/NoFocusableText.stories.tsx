@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Text, Divider, Checkbox } from '@fluentui/react-components';
 import { Scenario } from './utils';
 
-export const NoFocusableText = () => {
+export const NoFocusableTextExample = () => {
   return (
     <Scenario pageTitle="Text should not be focuable">
       <h1>Avoid text to focus</h1>
