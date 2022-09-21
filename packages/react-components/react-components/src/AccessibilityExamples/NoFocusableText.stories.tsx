@@ -26,7 +26,7 @@ export const NoFocusableTextExample = () => {
       <ul>
         <li>Text is focuable by adding tabindex="0" on text element. When user use TAB key text receive focus.</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
 
       <h2>Good example</h2>
       <Text id="helpText" block>
@@ -49,7 +49,7 @@ export const NoFocusableTextExample = () => {
         <li>Text element has unique id like "helpText".</li>
         <li>Checkbox has following attribute aria-describedby="helpText"</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Problem explanation</h2>
       <ul>
         <li>In generall not actionable element should not receive focus. It add additonal TAB stop in TAB order. </li>

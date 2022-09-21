@@ -61,7 +61,7 @@ export const AvoidPositionExample = () => {
           attribute value.
         </li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Good example</h2>
       <Menu>
         <MenuTrigger>
@@ -96,7 +96,7 @@ export const AvoidPositionExample = () => {
           element (role="menu").
         </li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Problem explanation</h2>
       <ul>
         <li>

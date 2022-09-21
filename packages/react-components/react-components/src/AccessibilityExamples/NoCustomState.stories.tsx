@@ -24,7 +24,7 @@ export const AvoidStateExample = () => {
       <ul>
         <li>aria-label="Files tab is active" was applied on the "Files" tab</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Good example</h2>
       <TabList defaultSelectedValue="Files">
         <Tab value="Chat">Chat</Tab>
@@ -39,7 +39,7 @@ export const AvoidStateExample = () => {
       <ul>
         <li>no aria-label is needed for "Files" tab</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Problem explanation</h2>
       <ul>
         <li>Adding custom state is not required, because this functionality should provide us the screen reader.</li>

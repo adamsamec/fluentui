@@ -45,7 +45,7 @@ export const LabelWithVisibleTextExample = () => {
       <ul>
         <li> aria-label="Remove [user name]" was applied on each button</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
 
       <h2>Good example</h2>
       <>
@@ -86,7 +86,7 @@ export const LabelWithVisibleTextExample = () => {
         <li> ID="remove-button" was applied on remove button </li>
         <li> aria-labelledby="remove-button user[number]" was applied on each "remove" button </li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Problem explanation</h2>
       <ul>
         <li>Even though the screen reader narration is the same for both examples implementation is different.</li>

@@ -22,7 +22,7 @@ export const AvoidComponentTypeExample = () => {
       <ul>
         <li>aria-label="Mute microphone button" was applied on the component.</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Good example</h2>
       <Button aria-label="Mute microphone" size="small" icon={<Mic24Regular />}></Button>
       <Text block>
@@ -33,7 +33,7 @@ export const AvoidComponentTypeExample = () => {
       <ul>
         <li>aria-label="Mute microphone" was applied on the component</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Problem explanation</h2>
       <ul>
         <li>

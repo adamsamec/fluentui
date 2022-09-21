@@ -20,7 +20,7 @@ export const AvoidActionExample = () => {
       <ul>
         <li>aria-label="Click here to send message" was applied on the component.</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Good example</h2>
       <Button aria-label="Send message" size="small" icon={<Send24Regular />}></Button>
       <Text block>
@@ -31,7 +31,7 @@ export const AvoidActionExample = () => {
       <ul>
         <li>aria-label="Send message " was applied on the component.</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Problem explanation</h2>
       <ul>
         <li>

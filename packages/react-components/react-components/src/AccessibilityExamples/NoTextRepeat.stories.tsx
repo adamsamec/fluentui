@@ -52,7 +52,7 @@ export const NoRepeatText = () => {
       <ul>
         <li>aria-label="Meeting participant [user name]" was applied on each menuitem</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Good example</h2>
       <Menu>
         <MenuTrigger>
@@ -85,7 +85,7 @@ export const NoRepeatText = () => {
         <li>no aria-label is needed for each menuitem</li>
         <li>aria-label="Meeting participants" was applied on menu component</li>
       </ul>
-      <Divider />
+      <Divider appearance="strong" />
       <h2>Problem explanation</h2>
       <ul>
         <li>
