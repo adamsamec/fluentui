@@ -11,16 +11,8 @@ const regexes = {
   onlyNameChars: /^[A-Za-zÀ-ÖØ-öø-ÿěščřžďťňůĚŠČŘŽĎŤŇŮ -]*$/,
   // eslint-disable-next-line @fluentui/max-len
   startsAndEndsWithLetter: /^(([A-Za-zÀ-ÖØ-öø-ÿěščřžďťňůĚŠČŘŽĎŤŇŮ][A-Za-zÀ-ÖØ-öø-ÿěščřžďťňůĚŠČŘŽĎŤŇŮ -]*[A-Za-zÀ-ÖØ-öø-ÿěščřžďťňůĚŠČŘŽĎŤŇŮ])|[A-Za-zÀ-ÖØ-öø-ÿěščřžďťňůĚŠČŘŽĎŤŇŮ])?$/,
-  noWhitespace: /^\S*$/,
-  hasNumber: /^\S*[0-9]\S*$/,
-  hasLowercaseLetter: /^\S*[a-z]\S*$/,
-  hasUppercaseLetter: /^\S*[A-Z]\S*$/,
-  hasSpecialChar: /^\S*[^0-9a-zA-ZÀ-ÖØ-öø-ÿěščřžďťňůĚŠČŘŽĎŤŇŮ\s]\S*$/,
-  validDate: /^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/,
-  validEmail: new RegExp(
-    // eslint-disable-next-line @fluentui/max-len
-    "(([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*]))?",
-  ),
+  // eslint-disable-next-line @fluentui/max-len
+  validEmail: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
 };
 
 interface FormInputs {
@@ -172,7 +164,7 @@ const BadFormExample = () => {
                 startsAndEndsWithLetter: value => regexes.startsAndEndsWithLetter.test(value),
                 always: () => {
                   if (!formState.isSubmitting) {
-                    formValidation.onFieldValidated('fullName');
+                    formValidation.onFieldValidated('bad_fullName');
                   }
                   return true;
                 },
@@ -219,7 +211,7 @@ const BadFormExample = () => {
                 validEmail: value => regexes.validEmail.test(value),
                 always: () => {
                   if (!formState.isSubmitting) {
-                    formValidation.onFieldValidated('email');
+                    formValidation.onFieldValidated('bad_email');
                   }
                   return true;
                 },
