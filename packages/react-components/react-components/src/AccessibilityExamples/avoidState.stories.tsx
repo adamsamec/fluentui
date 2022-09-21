@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Text, Divider, TabList, Tab } from '@fluentui/react-components';
+import { Text, Divider, TabList, Tab, Link } from '@fluentui/react-components';
 
 import { Scenario } from './utils';
 
@@ -45,7 +45,15 @@ export const AvoidStateExample = () => {
         <li>Adding custom state is not required, because this functionality should provide us the screen reader.</li>
         <li>
           If state of coponent is not narrated, then verify there is used "aria-checked" or "aria-selected" attribute.
-          See aria documentation for exact usage.
+          See aria documentation for{' '}
+          <Link href="https://www.w3.org/TR/wai-aria-1.1/#aria-selected" inline>
+            aria-selected
+          </Link>{' '}
+          or{' '}
+          <Link href="https://www.w3.org/TR/wai-aria-1.1/#aria-checked" inline>
+            aria-checked
+          </Link>{' '}
+          attribute.
         </li>
       </ul>
     </Scenario>
