@@ -41,9 +41,9 @@ export const NoRepeatText = () => {
         </MenuPopover>
       </Menu>
 
-      <h3>Screen reader narration after menu button activation</h3>
       <Text block>
-        <Text weight="semibold">JAWS:</Text> " Participants menu <br /> Meeting participant Robert Tolbert 1 of 3 To
+        <h3>Screen reader narration</h3>
+        <Text weight="semibold">JAWS: </Text> "Participants menu <br /> Meeting participant Robert Tolbert 1 of 3 To
         move through items press up or down arrow. <br /> Meeting participant Celeste Burton 2 of 3 <br /> Meeting
         participant Cecil Folk 3 of 3"
       </Text>
@@ -74,10 +74,10 @@ export const NoRepeatText = () => {
         </MenuPopover>
       </Menu>
 
-      <h3>Screen reader narration after menu button activation</h3>
       <Text block>
-        <Text weight="semibold">JAWS:</Text>
-        "Meeting participants menu <br /> Robert Tolbert 1 of 3 To move through items press up or down arrow. <br />{' '}
+        <h3>Screen reader narration</h3>
+        <Text weight="semibold">JAWS: </Text>
+        "Meeting participants menu <br /> Robert Tolbert 1 of 3 To move through items press up or down arrow. <br />
         Celeste Burton 2 of 3 <br /> Cecil Folk 3 of 3"
       </Text>
       <h3>Implementation details</h3>
@@ -93,6 +93,7 @@ export const NoRepeatText = () => {
           needs to wait for content to be narrated.
         </li>
         <li> Recommendation would be to label the component (menu in our example) with appropriate name.</li>
+        <li> This general principle is valid as well for others components like Tree, List, Listbox, Toolbar, etc.</li>
       </ul>
     </Scenario>
   );
