@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Text, Divider, Button, Avatar, makeStyles } from '@fluentui/react-components';
+import { Text, Divider, Button, Avatar, makeStyles, Link } from '@fluentui/react-components';
 import { Scenario } from './utils';
 import { PersonDelete24Regular } from '@fluentui/react-icons';
 
@@ -89,7 +89,7 @@ export const LabelWithVisibleTextExample = () => {
       <Divider />
       <h2>Problem explanation</h2>
       <ul>
-        <li>Even though the screen reader narration is the same for both examples Implementation is different.</li>
+        <li>Even though the screen reader narration is the same for both examples implementation is different.</li>
         <li>In generall we should reuse information visible/displayed in the UI.</li>
         <li>
           In this particular example aria-label was added to "remove" button and then we can refer to the "remove"
@@ -98,6 +98,14 @@ export const LabelWithVisibleTextExample = () => {
         <li>
           Using aria-labelledby in many cases avoids translation the element accessibility name to the desired UI
           language.
+        </li>
+        <li>
+          {' '}
+          Approach when component refers with "aria-labelledby" to itself was taken from{' '}
+          <Link href="https://www.w3.org/TR/accname-1.1/#terminology" inline>
+            Accessible Name and Description Computation 1.1 page.
+          </Link>{' '}
+          To find the example there go to "4.3.1 Terminology{'>'} 2B {'>'} Example"
         </li>
       </ul>
     </Scenario>
