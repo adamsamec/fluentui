@@ -102,7 +102,14 @@ const useFormValidation = (
   };
 };
 
-const BadFormExample = () => {
+interface FormExampleProps {
+  variant: string;
+}
+
+const FormExample: React.FC<FormExampleProps> = ({ variant }) => {
+  const fullNameId = `${variant}-fullName`;
+  const emailId = `${variant}-email`;
+
   const { control, handleSubmit, errors, formState } = useForm<FormInputs>({
     validateCriteriaMode: 'all',
     mode: 'onBlur',
@@ -119,7 +126,7 @@ const BadFormExample = () => {
       return;
     }
     const firstErrorName = Object.keys(errors)[0] as keyof FormInputs;
-    const firstErrorField = document.getElementById(firstErrorName);
+    const firstErrorField = document.getElementById(`${variant}-${firstErrorName}`);
     if (firstErrorField) {
       firstErrorField.focus();
     }
@@ -127,7 +134,7 @@ const BadFormExample = () => {
 
   React.useEffect(() => {
     if (isSubmittedAndValid) {
-      document.getElementById('bad_validMessage')?.focus();
+      document.getElementById(`${variant}-validMessage`)?.focus();
     }
   }, [isSubmittedAndValid]);
 
@@ -142,17 +149,17 @@ const BadFormExample = () => {
     <>
       {!isSubmittedAndValid ? (
         <form onSubmit={formValidation.handleSubmit(onSubmit)}>
-          <Label htmlFor="bad_fullName">Full name:</Label>
+          <Label htmlFor={fullNameId}>Full name:</Label>
           <Controller
             name="fullName"
             control={control}
             as={
               <Input
                 type="text"
-                id="bad_fullName"
+                id={fullNameId}
                 aria-required="true"
                 aria-invalid={!!errors.fullName}
-                aria-describedby="bad_fullNameErrors"
+                aria-describedby={variant == 'bad' ? undefined : `${fullNameId}Errors`}
               />
             }
             rules={{
@@ -164,7 +171,7 @@ const BadFormExample = () => {
                 startsAndEndsWithLetter: value => regexes.startsAndEndsWithLetter.test(value),
                 always: () => {
                   if (!formState.isSubmitting) {
-                    formValidation.onFieldValidated('bad_fullName');
+                    formValidation.onFieldValidated(fullNameId);
                   }
                   return true;
                 },
@@ -172,7 +179,7 @@ const BadFormExample = () => {
             }}
           />
           {errors.fullName?.types && (
-            <ValidationMessage id="bad_fullName" formValidation={formValidation}>
+            <ValidationMessage id={fullNameId} formValidation={formValidation}>
               {'required' in errors.fullName.types ? (
                 <p>Full name is required.</p>
               ) : (
@@ -192,17 +199,17 @@ const BadFormExample = () => {
             </ValidationMessage>
           )}
 
-          <Label htmlFor="bad_email">E-mail:</Label>
+          <Label htmlFor={emailId}>E-mail:</Label>
           <Controller
             name="email"
             control={control}
             as={
               <Input
                 type="text"
-                id="bad_email"
+                id={emailId}
                 aria-required="true"
                 aria-invalid={!!errors.email}
-                aria-describedby="bad_emailErrors"
+                aria-describedby={variant == 'bad' ? undefined : `${emailId}Errors`}
               />
             }
             rules={{
@@ -211,7 +218,7 @@ const BadFormExample = () => {
                 validEmail: value => regexes.validEmail.test(value),
                 always: () => {
                   if (!formState.isSubmitting) {
-                    formValidation.onFieldValidated('bad_email');
+                    formValidation.onFieldValidated(emailId);
                   }
                   return true;
                 },
@@ -219,7 +226,7 @@ const BadFormExample = () => {
             }}
           />
           {errors.email?.types && (
-            <ValidationMessage id="bad_email" formValidation={formValidation}>
+            <ValidationMessage id={emailId} formValidation={formValidation}>
               {'required' in errors.email.types ? (
                 <p>E-mail is required.</p>
               ) : (
@@ -236,7 +243,7 @@ const BadFormExample = () => {
           <Button type="submit">Subscribe</Button>
         </form>
       ) : (
-        <p id="bad_validMessage" role="alert" tabIndex={-1}>
+        <p id={`${variant}-validMessage`} role="alert" tabIndex={-1}>
           The form is valid and would have been submitted.
         </p>
       )}
@@ -251,7 +258,7 @@ export const FormErrorMessagesExample = () => {
 
       <h2>Bad example</h2>
       <PubSubProvider>
-        <BadFormExample />
+        <FormExample variant="bad" />
       </PubSubProvider>
 
       <h3>Screen reader narration after menu button activation</h3>
@@ -275,6 +282,9 @@ export const FormErrorMessagesExample = () => {
       </ul>
       <Divider />
       <h2>Good example</h2>
+      <PubSubProvider>
+        <FormExample variant="good" />
+      </PubSubProvider>
 
       <h3>Screen reader narration after menu button activation</h3>
       <Text block>
