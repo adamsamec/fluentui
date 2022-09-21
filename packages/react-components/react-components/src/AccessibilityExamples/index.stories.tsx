@@ -1,7 +1,7 @@
-export { AvoidActionExample } from './avoidAction.stories';
-export { AvoidComponentTypeExample } from './avoidComponentType.stories';
-export { AvoidStateExample } from './avoidState.stories';
-export { AvoidPositionExample } from './avoidPosition.stories';
+export { AvoidActionExample } from './NoActionInLabel.stories';
+export { AvoidComponentTypeExample } from './NoComponentType.stories';
+export { AvoidStateExample } from './NoCustomState.stories';
+export { AvoidPositionExample } from './NoCustomPosition.stories';
 export { NoRepeatText } from './NoTextRepeat.stories';
 export { NoFocusableTextExample } from './NoFocusableText.stories';
 export { FormErrorMessagesExample } from './formErrorMessages.stories';
