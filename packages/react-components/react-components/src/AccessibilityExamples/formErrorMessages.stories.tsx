@@ -265,10 +265,12 @@ export const FormErrorMessagesExample = () => {
       <Text block>
         <Text weight="semibold">JAWS:</Text> "Full name, Edit, Required, invalid entry, [field-content], Type in text."
       </Text>
+
       <h3>Implementation details</h3>
       <ul>
         <li>Each form field is not connected to its corresponding error message.</li>
       </ul>
+
       <Divider />
       <h2>Good example</h2>
       <PubSubProvider>
@@ -280,6 +282,7 @@ export const FormErrorMessagesExample = () => {
         <Text weight="semibold">JAWS:</Text> "Full name, Edit, Required, invalid entry, [field-content], Full name is
         invalid. It must: Contain only lowercase or uppercase letters, spaces or hyphens. Start and end wit letter."
       </Text>
+
       <h3>Implementation details</h3>
       <ul>
         <li>
