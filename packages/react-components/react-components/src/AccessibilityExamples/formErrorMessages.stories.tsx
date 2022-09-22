@@ -149,7 +149,7 @@ const FormExample: React.FC<FormExampleProps> = ({ variant }) => {
     <>
       {!isSubmittedAndValid ? (
         <form onSubmit={formValidation.handleSubmit(onSubmit)}>
-          <Label htmlFor={fullNameId}>Full name:</Label>
+          <Label htmlFor={fullNameId}>Full name</Label>
           <Controller
             name="fullName"
             control={control}
@@ -199,7 +199,7 @@ const FormExample: React.FC<FormExampleProps> = ({ variant }) => {
             </ValidationMessage>
           )}
 
-          <Label htmlFor={emailId}>E-mail:</Label>
+          <Label htmlFor={emailId}>E-mail</Label>
           <Controller
             name="email"
             control={control}
@@ -261,24 +261,13 @@ export const FormErrorMessagesExample = () => {
         <FormExample variant="bad" />
       </PubSubProvider>
 
-      <h3>Screen reader narration after menu button activation</h3>
+      <h3>Screen reader narration for full name field with invalid content</h3>
       <Text block>
-        <Text weight="semibold">JAWS:</Text> "Profile menu
-        <br />
-        Account settings..., first item of four. To move through items press up or down arrow.
-        <br />
-        Change status message..., second item of four
-        <br />
-        Help, third item of four
-        <br />
-        Sign out, fourth item of four"
+        <Text weight="semibold">JAWS:</Text> "Full name, Edit, Required, invalid entry, [field-content], Type in text."
       </Text>
       <h3>Implementation details</h3>
       <ul>
-        <li>
-          The "X of Y" position information is hard-coded manually as the part of each menu item's "aria-label"
-          attribute value.
-        </li>
+        <li>Each form field is not connected to its corresponding error message.</li>
       </ul>
       <Divider />
       <h2>Good example</h2>
@@ -286,40 +275,26 @@ export const FormErrorMessagesExample = () => {
         <FormExample variant="good" />
       </PubSubProvider>
 
-      <h3>Screen reader narration after menu button activation</h3>
+      <h3>Screen reader narration for full name field with invalid content</h3>
       <Text block>
-        <Text weight="semibold">JAWS:</Text> "Profile menu
-        <br />
-        Account settings..., 1 of 4. To move through items press up or down arrow.
-        <br />
-        Change status message..., 2 of 4<br />
-        Help, 3 of 4<br />
-        Sign out, 4 of 4"
+        <Text weight="semibold">JAWS:</Text> "Full name, Edit, Required, invalid entry, [field-content], Full name is
+        invalid. It must: Contain only lowercase or uppercase letters, spaces or hyphens. Start and end wit letter."
       </Text>
       <h3>Implementation details</h3>
       <ul>
         <li>
-          The "X of Y" position information is added automatically by the screen reader for each menu item because the
-          correct ARIA role is used both for all individual menu item elements (role="menuitem") and the parent menu
-          element (role="menu").
+          The aria-describedby attribute is applied on each input field and references the corresponding error message
+          element.
         </li>
       </ul>
+
       <Divider />
       <h2>Problem explanation</h2>
       <ul>
         <li>
-          Even though the screen reader narration might seem similar, don't hard-code "X of Y" position information
-          manually as the part of the accessible name of each individual item, but instead use proper ARIA roles and let
-          the screen reader add the "X of Y" information for you.
-        </li>
-        <li>
-          The JAWS screen reader currently supports the "X of Y" information for the following roles: listbox,
-          menu,tablist. See the <a href="https://www.w3.org/TR/wai-aria-1.2/">ARIA specification</a> to learn which
-          required owned elements (such as option, menuitem or tab) should be used with these roles.
-        </li>
-        <li>
-          Letting the screen reader add the "X of Y" position information for you also avoids the need to manually
-          translate this information to the desired UI language.
+          Each form field should be referencing the corresponding error message element using the aria-describedby
+          attribute. This ensures that whenever the form field is focused, the error message is narrated by the screen
+          reader.
         </li>
       </ul>
     </Scenario>
