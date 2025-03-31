@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@fluentui/eslint-plugin": "*",
-    "monaco-editor": "0.33.0",
+    "monaco-editor": "0.52.2",
     "@fluentui/scripts-tasks": "*"
   },
   "dependencies": {
