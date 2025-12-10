@@ -256,7 +256,7 @@
     "markdown-table": "2.0.0",
     "memfs": "3.5.3",
     "monosize": "0.6.3",
-    "monosize-bundler-webpack": "0.1.6",
+    "monosize-bundler-webpack": "0.2.0",
     "monosize-storage-azure": "0.0.16",
     "node-plop": "0.25.0",
     "nx": "21.6.10",
